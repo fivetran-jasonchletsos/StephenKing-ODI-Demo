@@ -37,7 +37,13 @@ jobs:
           cd "$GITHUB_WORKSPACE"
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git worktree add /tmp/ghp gh-pages 2>/dev/null || git worktree add /tmp/ghp -B gh-pages
+          # Always fetch remote first so the worktree tracks it.
+          git fetch origin gh-pages 2>/dev/null || true
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git worktree add /tmp/ghp gh-pages
+          else
+            git worktree add --orphan -b gh-pages /tmp/ghp
+          fi
           rsync -a --delete --exclude=.git castle-rock-app/out/ /tmp/ghp/
           cd /tmp/ghp
           git add -A
@@ -45,5 +51,6 @@ jobs:
             echo "no changes"
           else
             git commit -m "Deploy: ${GITHUB_SHA::7}"
-            git push origin gh-pages
+            # Force-push: gh-pages is a built-artifact branch; history doesn't matter.
+            git push --force origin gh-pages
           fi

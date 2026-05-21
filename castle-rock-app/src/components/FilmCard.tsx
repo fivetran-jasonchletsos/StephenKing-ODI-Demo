@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Film } from "@/lib/films";
 import { filmSlug } from "./slugs";
 import postersManifest from "@/../public/posters/manifest.json";
@@ -11,7 +12,8 @@ export default function FilmCard({ film }: { film: Film }) {
   const posterUrl = hasPoster ? `${BASE}/posters/${slug}.jpg` : null;
 
   return (
-    <article className="group">
+    <Link href={`/film/${slug}/`} className="block group focus:outline-none focus:ring-2 focus:ring-ember/40">
+    <article>
       <div className="aspect-[2/3] relative overflow-hidden bg-coal cover-card border border-paper/10">
         {posterUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -42,5 +44,6 @@ export default function FilmCard({ film }: { film: Film }) {
         </p>
       </div>
     </article>
+    </Link>
   );
 }

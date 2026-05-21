@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Book } from "@/lib/books";
 import { bookSlug } from "./slugs";
 import coversManifest from "@/../public/covers/manifest.json";
@@ -11,7 +12,8 @@ export default function BookCard({ book }: { book: Book }) {
   const coverUrl = hasCover ? `${BASE}/covers/${slug}.jpg` : null;
 
   return (
-    <article className="group">
+    <Link href={`/book/${slug}/`} className="block group focus:outline-none focus:ring-2 focus:ring-ember/40">
+    <article>
       <div className="aspect-[2/3] relative overflow-hidden bg-coal cover-card border border-paper/10">
         {coverUrl ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -46,5 +48,6 @@ export default function BookCard({ book }: { book: Book }) {
         <p className="text-sm text-bone/65 mt-2 leading-snug line-clamp-3">{book.blurb}</p>
       </div>
     </article>
+    </Link>
   );
 }

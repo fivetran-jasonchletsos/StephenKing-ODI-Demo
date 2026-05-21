@@ -1,4 +1,5 @@
 import { cameos } from "@/lib/cameos";
+import CameoAnalytics from "@/components/CameoAnalytics";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,10 +15,16 @@ export default function CameosPage() {
         <h1 className="serif text-4xl sm:text-5xl text-paper drip-stop">King On Screen</h1>
         <p className="serif italic text-bone/65 mt-3 max-w-2xl">
           {cameos.length} on-screen appearances, in his own adaptations and a few outside. Pulled
-          from TMDB cast credits filtered for King's actor entry.
+          from TMDB cast credits filtered for King's actor entry (TMDB person 3636).
         </p>
 
-        <ul className="mt-12 space-y-8 border-l border-blood/40 pl-6">
+        <CameoAnalytics />
+
+        <h2 className="type text-[11px] uppercase tracking-[0.35em] text-ember mt-16 mb-3">
+          The full list, chronological
+        </h2>
+
+        <ul className="mt-6 space-y-8 border-l border-blood/40 pl-6">
           {sorted.map((c, i) => (
             <li key={`${c.year}-${c.film}-${i}`} className="relative">
               <span className="absolute -left-[26px] top-2 w-2.5 h-2.5 rounded-full bg-blood ring-2 ring-blood/30" aria-hidden="true" />

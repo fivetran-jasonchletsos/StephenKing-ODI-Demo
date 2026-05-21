@@ -1,7 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { characters } from "@/lib/characters";
+import { books } from "@/lib/books";
+import { bookSlug } from "@/components/slugs";
 
 const ALIGN_LABEL: Record<string, string> = {
   protagonist:  "Protagonist",
@@ -96,9 +99,30 @@ export default function CharactersPage() {
               )}
               <p className="serif italic text-bone/75 mb-2">{c.role}</p>
               <p className="text-bone/80 leading-relaxed max-w-3xl">{c.description}</p>
-              <p className="type text-[10px] uppercase tracking-[0.25em] text-ember/70 mt-3">
-                Appears in: {c.books.join(" · ")}
-              </p>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <span className="type text-[10px] uppercase tracking-[0.25em] text-bone/55">
+                  Appears in:
+                </span>
+                {c.books.map((title) => {
+                  const exists = books.some((b) => b.title === title);
+                  if (!exists) {
+                    return (
+                      <span key={title} className="type text-[10px] uppercase tracking-[0.2em] px-2 py-1 bg-coal/60 border border-paper/15 text-bone/75">
+                        {title}
+                      </span>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={title}
+                      href={`/book/${bookSlug(title)}/`}
+                      className="type text-[10px] uppercase tracking-[0.2em] px-2 py-1 bg-coal/60 border border-paper/15 text-paper hover:border-ember/60 hover:bg-blood/15 transition"
+                    >
+                      {title}
+                    </Link>
+                  );
+                })}
+              </div>
             </li>
           ))}
         </ul>

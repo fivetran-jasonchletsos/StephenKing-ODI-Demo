@@ -184,6 +184,11 @@
     "title": "Desperation",
     "olid": "OL26412017M"
   },
+  "380eab2e": {
+    "found": true,
+    "title": "The Regulators",
+    "olid": "OL24228762M"
+  },
   "9ac4c423": {
     "found": true,
     "title": "Wizard and Glass",
@@ -208,6 +213,21 @@
     "found": true,
     "title": "From a Buick 8",
     "olid": "OL26425980M"
+  },
+  "a0efacd2": {
+    "found": false,
+    "title": "The Journals of Eleanor Druse",
+    "olid": "OL3702014M"
+  },
+  "ce63713": {
+    "found": true,
+    "title": "Blaze",
+    "olid": "OL26411976M"
+  },
+  "2e3c239d": {
+    "found": false,
+    "title": "Charlie the Choo-Choo",
+    "olid": "OL26412054M"
   },
   "61f3a178": {
     "found": true,

@@ -1,0 +1,18 @@
+{
+  "_note": "Seed for the Cortex verdicts ticker. Snowflake table gold.fct_submission would feed this in production (see scripts/submissions-worker.template.ts).",
+  "_updated_at": "2026-05-21T00:00:00Z",
+  "submissions": [
+    { "id": "k_001", "submitted_at": "2026-05-20T22:50:00Z", "title": "The Hotel Across the Street",  "city": "Bangor, ME",     "verdict": "The archive already contains The Shining (1977). The Hotel Across the Street is what you bring when you haven't read it." },
+    { "id": "k_002", "submitted_at": "2026-05-20T22:18:00Z", "title": "Carrie 2.0",                    "city": "Brooklyn, NY",   "verdict": "Carrie 2.0 wants to be Carrie. Carrie was Carrie." },
+    { "id": "k_003", "submitted_at": "2026-05-20T21:55:00Z", "title": "Pet Cemetery",                  "city": "Bath, UK",       "verdict": "Pet Cemetery is the misspelling. Pet Sematary (1983) is on the shelf because it isn't." },
+    { "id": "k_004", "submitted_at": "2026-05-20T21:34:00Z", "title": "Twelve Past Midnight",         "city": "Austin, TX",     "verdict": "Four Past Midnight has four novellas. Adding eight more is a brand violation. Cortex flagged it as Bachman-adjacent; the Bachman novels disagree." },
+    { "id": "k_005", "submitted_at": "2026-05-20T21:02:00Z", "title": "The Clown Below",              "city": "Denver, CO",     "verdict": "Submitted by someone who's seen the IT (2017) adaptation but hasn't read the source. The source disagrees." },
+    { "id": "k_006", "submitted_at": "2026-05-20T20:39:00Z", "title": "Werewolf in Maine",             "city": "Portland, ME",   "verdict": "Compared against Cycle of the Werewolf (1983). The comparison was unkind to Werewolf in Maine." },
+    { "id": "k_007", "submitted_at": "2026-05-20T20:18:00Z", "title": "The Long Sprint",              "city": "Phoenix, AZ",    "verdict": "The Long Walk (1979) walked 65 miles. Sprint is the wrong unit." },
+    { "id": "k_008", "submitted_at": "2026-05-20T19:48:00Z", "title": "Annie Wilkes Returns",         "city": "Boulder, CO",    "verdict": "Misery (1987) is closed. The cobbler isn't unkilled by your enthusiasm." },
+    { "id": "k_009", "submitted_at": "2026-05-20T19:24:00Z", "title": "Castle Rock Reborn",           "city": "Manchester, NH", "verdict": "Reads like a Hulu pitch. Castle Rock is more than a brand; it's the postman, the bench, the Sheriff's office." },
+    { "id": "k_010", "submitted_at": "2026-05-20T19:01:00Z", "title": "Doctor Sleep III",              "city": "Cleveland, OH",  "verdict": "Doctor Sleep (2013) closed the Torrance ledger. Cortex flagged this as workshop draft of Doctor Sleep." },
+    { "id": "k_011", "submitted_at": "2026-05-20T18:30:00Z", "title": "The Big Bad Cell",             "city": "Chicago, IL",    "verdict": "Cell (2006) already covered the phone-as-virus angle. Yours is the kind of pitch that ends \"and then they realize the demon was inside them the whole time.\"" },
+    { "id": "k_012", "submitted_at": "2026-05-20T18:00:00Z", "title": "Stand By Me Forever",          "city": "Seattle, WA",    "verdict": "The Body became Stand By Me (1986) because it was already perfect. Sequel is a category error." }
+  ]
+}

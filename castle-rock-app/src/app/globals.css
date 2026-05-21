@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #0b0807;
+  color: #e9e1cf;
+  font-family: ui-sans-serif, system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+.serif {
+  font-family: var(--font-rozha), Georgia, "Times New Roman", serif;
+  letter-spacing: 0.005em;
+}
+
+.font-mono,
+[class*="font-mono"] {
+  font-family: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.type {
+  font-family: var(--font-special-elite), var(--font-jetbrains), monospace;
+  letter-spacing: 0.02em;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Texture — old pulp paperback. Two layers stacked: fine noise + grit.
+   ──────────────────────────────────────────────────────────────────── */
+
+.pulp {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(233,225,207,0.025) 1px, transparent 1px),
+    radial-gradient(rgba(233,225,207,0.015) 1px, transparent 1px);
+  background-size: 220px 220px, 4px 4px, 11px 11px;
+  background-position: 0 0, 0 0, 2px 3px;
+}
+
+/* Focus */
+:focus-visible {
+  outline: 2px solid rgba(169, 45, 36, 0.7);
+  outline-offset: 3px;
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Hero underline — blood drip variant
+   ──────────────────────────────────────────────────────────────────── */
+
+@keyframes drip {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  100% { transform: scaleY(1); transform-origin: top; }
+}
+
+.blood-underline {
+  position: relative;
+  display: inline;
+}
+.blood-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background: #7f1a14;
+  box-shadow: 0 2px 6px rgba(127, 26, 20, 0.5);
+}
+
+/* ────────────────────────────────────────────────────────────────────
+   Card hover — slight tilt, sharper shadow, bone-line border
+   ──────────────────────────────────────────────────────────────────── */
+
+.cover-card {
+  transition:
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .cover-card {
+  transform: translateY(-5px) rotate(-0.7deg) scale(1.03);
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.55),
+    0 22px 50px rgba(0,0,0,0.7),
+    0 1px 3px rgba(169,45,36,0.25);
+}
+
+/* Marquee for the live submissions ticker */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 200s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Section ornament — Castle Rock title-card style */
+.section-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-ornament::before,
+.section-ornament::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(233,225,207,0.10);
+}
+
+/* Sticky meta-bar with pulp tint */
+.meta-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(12px) saturate(1.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  background: rgba(11, 8, 7, 0.88);
+  border-bottom: 1px solid rgba(233,225,207,0.10);
+}
+
+/* Subtle CRT flicker on the brand mark */
+@keyframes flicker {
+  0%, 100%   { opacity: 1; }
+  47%        { opacity: 1; }
+  48%        { opacity: 0.85; }
+  49%        { opacity: 1; }
+  82%        { opacity: 1; }
+  83%        { opacity: 0.92; }
+  84%        { opacity: 1; }
+}
+.flicker {
+  animation: flicker 6s infinite;
+}
+
+/* Drip caret for headings */
+.drip-stop::before {
+  content: "▾";
+  display: inline-block;
+  color: #7f1a14;
+  margin-right: 0.4em;
+  transform: translateY(-0.04em);
+  font-size: 0.8em;
+}

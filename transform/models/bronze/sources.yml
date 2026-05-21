@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: openlibrary
+    database: castle_rock
+    schema: bronze_openlibrary
+    description: "Open Library bibliography landed by Fivetran HTTP source."
+    tables:
+      - { name: work }
+      - { name: edition }
+      - { name: author }
+      - { name: subject }
+
+  - name: tmdb
+    database: castle_rock
+    schema: bronze_tmdb
+    description: "TMDB person + film + cast credits."
+    tables:
+      - { name: person }
+      - { name: movie }
+      - { name: tv_series }
+      - { name: cast_credit }
+      - { name: crew_credit }
+
+  - name: wikidata
+    database: castle_rock
+    schema: bronze_wikidata
+    description: "Character + place graph extracted via SPARQL."
+    tables:
+      - { name: character }
+      - { name: place }
+      - { name: cross_book_link }

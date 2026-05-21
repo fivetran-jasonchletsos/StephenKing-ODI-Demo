@@ -6,14 +6,16 @@
 export type Book = {
   title: string;
   year: number;
-  category: "novel" | "collection" | "novella" | "nonfiction";
-  pseudonym?: "Richard Bachman";
+  category: "novel" | "collection" | "novella" | "nonfiction" | "children";
+  // King's pseudonyms:
+  //   Richard Bachman — seven novels, 1977–2007 (the big one)
+  //   Beryl Evans     — Charlie the Choo-Choo (2016), the in-universe author from Wolves of the Calla
+  //   John Swithen    — used once, "The Fifth Quarter" (Cavalier, 1972, short story)
+  //   Eleanor Druse   — The Journals of Eleanor Druse (2004), Kingdom Hospital tie-in
+  pseudonym?: "Richard Bachman" | "Beryl Evans" | "John Swithen" | "Eleanor Druse";
   series?: string;
   blurb: string;
-  // OpenLibrary cover ID — we render covers via the public covers API
-  // when olid is present. Fallback is a plain dot.
   olid?: string;
-  // ISBN-10 also works against covers.openlibrary.org
   isbn?: string;
 };
 

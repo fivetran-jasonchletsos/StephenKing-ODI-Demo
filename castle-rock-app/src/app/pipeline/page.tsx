@@ -4,10 +4,35 @@ export const metadata: Metadata = {
   title: "Pipeline — Castle Rock Archive",
 };
 
+// Deep-link pattern: https://fivetran.com/dashboard/connectors/<connector_id>
 const CONNECTORS = [
-  { name: "Open Library",  schema: "bronze_openlibrary", freq: "Daily",           tables: 4, state: "healthy" },
-  { name: "TMDB",          schema: "bronze_tmdb",        freq: "Daily",           tables: 5, state: "healthy" },
-  { name: "Wikidata",      schema: "bronze_wikidata",    freq: "Weekly (SPARQL)", tables: 3, state: "healthy" },
+  {
+    name: "Open Library",
+    schema: "bronze_openlibrary",
+    freq: "Daily",
+    tables: 4,
+    state: "healthy",
+    fivetran_id: "open_library_bronze_01",
+    fivetran_url: "https://fivetran.com/dashboard/connectors/open_library_bronze_01",
+  },
+  {
+    name: "TMDB",
+    schema: "bronze_tmdb",
+    freq: "Daily",
+    tables: 5,
+    state: "healthy",
+    fivetran_id: "tmdb_bronze_01",
+    fivetran_url: "https://fivetran.com/dashboard/connectors/tmdb_bronze_01",
+  },
+  {
+    name: "Wikidata",
+    schema: "bronze_wikidata",
+    freq: "Weekly (SPARQL)",
+    tables: 3,
+    state: "healthy",
+    fivetran_id: "wikidata_bronze_01",
+    fivetran_url: "https://fivetran.com/dashboard/connectors/wikidata_bronze_01",
+  },
 ];
 
 const LAYERS = [
@@ -35,14 +60,14 @@ export default function PipelinePage() {
           <h2 className="type text-[10px] uppercase tracking-[0.3em] text-bone/55 mb-4">Connectors</h2>
           <div className="grid md:grid-cols-2 gap-3">
             {CONNECTORS.map((c) => (
-              <div key={c.name} className="border border-paper/15 bg-coal/40 p-4">
+              <div key={c.name} className="border border-paper/15 bg-coal/40 p-4 flex flex-col gap-2">
                 <div className="flex items-baseline justify-between">
                   <h3 className="serif text-lg text-paper">{c.name}</h3>
                   <span className="type text-[9px] uppercase tracking-[0.25em] text-sickly bg-sickly/10 border border-sickly/30 px-2 py-0.5">
                     {c.state}
                   </span>
                 </div>
-                <p className="type text-[10px] uppercase tracking-[0.25em] text-bone/45 mt-2">
+                <p className="type text-[10px] uppercase tracking-[0.25em] text-bone/45">
                   Schema: <span className="text-bone/75">{c.schema}</span>
                 </p>
                 <p className="type text-[10px] uppercase tracking-[0.25em] text-bone/45">
@@ -51,6 +76,18 @@ export default function PipelinePage() {
                 <p className="type text-[10px] uppercase tracking-[0.25em] text-bone/45">
                   Tables landed: <span className="text-bone/75">{c.tables}</span>
                 </p>
+                <p className="type text-[10px] uppercase tracking-[0.25em] text-bone/45">
+                  Connector ID:{" "}
+                  <code className="font-mono text-bone/75 text-[10px]">{c.fivetran_id}</code>
+                </p>
+                <a
+                  href={c.fivetran_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block type text-[9px] uppercase tracking-[0.25em] px-3 py-1.5 border border-ember/40 text-ember hover:bg-blood/20 transition w-fit"
+                >
+                  Open in Fivetran
+                </a>
               </div>
             ))}
           </div>

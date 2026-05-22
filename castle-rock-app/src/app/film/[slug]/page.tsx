@@ -126,8 +126,7 @@ export default function FilmDetailPage({ params }: { params: { slug: string } })
         )}
 
         <p className="type text-[10px] uppercase tracking-[0.3em] text-bone/40 mt-16">
-          Data: <span className="text-bone/70">gold.dim_film</span> (TMDB),
-          <span className="text-bone/70"> gold.fct_cameo</span> (TMDB cast credits filtered to person 3636).
+          Data: film dimension (TMDB), cameo fact table (TMDB cast credits filtered to person 3636).
         </p>
       </div>
     </main>

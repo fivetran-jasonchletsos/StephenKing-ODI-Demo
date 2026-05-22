@@ -246,10 +246,8 @@ export default function ConnectionsCortexPanel() {
       </div>
       <h2 className="serif text-3xl text-paper sm:text-4xl drip-stop">Ask the connections.</h2>
       <p className="serif italic text-bone/70 mt-3 max-w-3xl leading-relaxed">
-        These questions exercise the graph behind the diagram —
-        <span className="text-ember"> gold.fct_appearance</span> joined with
-        <span className="text-ember"> gold.dim_book</span> and
-        <span className="text-ember"> gold.dim_character</span>. Cortex Analyst writes
+        These questions exercise the graph behind the diagram — the appearance fact table joined with
+        the book and character dimensions. Cortex Analyst writes
         the SQL; the semantic layer in the dbt project teaches it the cross-book
         vocabulary (series, pseudonyms, role/alignment).
       </p>

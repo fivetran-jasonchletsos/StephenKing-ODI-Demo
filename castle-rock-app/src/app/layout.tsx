@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Rozha_One, Special_Elite } from "next/font/google";
+import { JetBrains_Mono, Rozha_One, Special_Elite, Crimson_Pro } from "next/font/google";
 import TopNav from "@/components/TopNav";
 import Footer from "@/components/Footer";
 import "./globals.css";
@@ -21,6 +21,13 @@ const mono = JetBrains_Mono({
   variable: "--font-jetbrains",
   display: "swap",
 });
+const crimson = Crimson_Pro({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-crimson",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Castle Rock Archive — The Stephen King Universe",
@@ -36,7 +43,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${rozha.variable} ${elite.variable} ${mono.variable}`}>
+    <html lang="en" className={`${rozha.variable} ${elite.variable} ${mono.variable} ${crimson.variable}`}>
       <body className="pulp min-h-screen flex flex-col">
         <TopNav />
         <div className="flex-1">{children}</div>

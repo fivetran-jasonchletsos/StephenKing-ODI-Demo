@@ -137,8 +137,8 @@ export default function ConnectionsPage() {
         <p className="serif italic text-bone/70 mt-3 max-w-3xl">
           Every book along the bottom, sorted by publication year. Each arc threads a recurring
           character through their books. Hover a character on the right; click to lock the focus.
-          The data behind this is <span className="text-ember">gold.fct_appearance</span>
-          {" "}joined with <span className="text-ember">gold.dim_book</span>.
+          The data behind this is the appearance fact table joined with the book dimension — both
+          modeled in dbt from the Wikidata connector.
         </p>
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
@@ -325,8 +325,7 @@ export default function ConnectionsPage() {
         </div>
 
         <p className="type text-[10px] uppercase tracking-[0.3em] text-bone/40 mt-12">
-          Drawn from <span className="text-bone/70">gold.fct_appearance</span> joined with
-          <span className="text-bone/70"> gold.dim_book</span>. Pure SVG, no JS chart lib.
+          Drawn from the appearance fact table joined with the book dimension. Pure SVG, no JS chart lib.
         </p>
 
         <ConnectionsCortexPanel />

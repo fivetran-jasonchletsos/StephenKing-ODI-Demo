@@ -170,9 +170,7 @@ export default function BookDetailPage({ params }: { params: { slug: string } })
         )}
 
         <p className="type text-[10px] uppercase tracking-[0.3em] text-bone/40 mt-16">
-          Data sources: <span className="text-bone/70">gold.dim_book</span> (Open Library),
-          <span className="text-bone/70"> gold.fct_appearance</span> (Wikidata),
-          <span className="text-bone/70"> gold.dim_film</span> (TMDB).
+          Data sources: book dimension (Open Library), appearance fact table (Wikidata), film dimension (TMDB).
         </p>
       </div>
     </main>

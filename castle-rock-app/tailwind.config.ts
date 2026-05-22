@@ -19,9 +19,10 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-rozha)", "Georgia", "Times New Roman", "serif"],
-        sans:    ["ui-sans-serif", "system-ui", "-apple-system", "Helvetica", "Arial", "sans-serif"],
+        sans:    ["var(--font-crimson)", "Georgia", "Times New Roman", "serif"],
         mono:    ["var(--font-jetbrains)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
         type:    ["var(--font-special-elite)", "var(--font-jetbrains)", "monospace"],
+        body:    ["var(--font-crimson)", "Georgia", "serif"],
       },
     },
   },

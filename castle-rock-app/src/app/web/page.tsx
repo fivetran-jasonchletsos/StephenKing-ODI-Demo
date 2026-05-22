@@ -183,7 +183,7 @@ export default function WebPage() {
         </div>
 
         <p className="type text-[10px] uppercase tracking-[0.3em] text-bone/40 mt-10">
-          Source: <span className="text-bone/70">gold.fct_appearance</span> — many-to-many from Wikidata + curator overrides, modeled in dbt, queryable by Cortex.
+          Source: appearance fact table — many-to-many from Wikidata + curator overrides, modeled in dbt, queryable by Cortex.
         </p>
       </div>
     </main>

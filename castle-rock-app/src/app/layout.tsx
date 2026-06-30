@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { JetBrains_Mono, Rozha_One, Special_Elite, Crimson_Pro } from "next/font/google";
 import TopNav from "@/components/TopNav";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 import "./globals.css";
 
 const rozha = Rozha_One({
@@ -32,7 +33,7 @@ const crimson = Crimson_Pro({
 export const metadata: Metadata = {
   title: "Castle Rock Archive — The Stephen King Universe",
   description:
-    "Every novel. Every adaptation. Every cameo. Every recurring character. Built on Fivetran + Snowflake + dbt + Iceberg + Cortex Analyst.",
+    "Every novel. Every adaptation. Every cameo. Every recurring character. Built on Fivetran + Snowflake + dbt + Iceberg + dbt-wizard run-time agents.",
 };
 
 export const viewport: Viewport = {
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <TopNav />
         <div className="flex-1">{children}</div>
         <Footer />
+        <Script src="/feedback-widget.js" strategy="afterInteractive" />
       </body>
     </html>
   );
